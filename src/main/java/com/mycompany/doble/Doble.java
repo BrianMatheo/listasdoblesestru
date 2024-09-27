@@ -41,7 +41,7 @@ public class Doble {
         nuevo.setSiguiente(null);
         nuevo.setDatos(datos);
         
-        if(inicio != null){
+        if(inicio == null){
             nuevo.setSiguiente(inicio);
             inicio.setAnterior(nuevo);
             }else{
@@ -50,7 +50,8 @@ public class Doble {
                 temporal = temporal.getSiguiente();
             }
             temporal.setSiguiente(nuevo);
-            nuevo.setSiguiente(temporal);
+            nuevo.setAnterior(nuevo);
+            nuevo.setSiguiente(null);
         }
         //insertar en una posicion dada
         //insertar antes de una posicion dada
