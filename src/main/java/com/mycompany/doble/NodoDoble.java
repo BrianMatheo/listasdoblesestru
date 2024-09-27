@@ -44,5 +44,6 @@ public class NodoDoble {
     }
     private NodoDoble anterior;
     private NodoDoble siguiente;
-    private String datos;
+    private String datos;           
+    
 }

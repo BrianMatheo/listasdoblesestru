@@ -42,8 +42,9 @@ public class Doble {
         nuevo.setDatos(datos);
         
         if(inicio == null){
-            nuevo.setSiguiente(inicio);
-            inicio.setAnterior(nuevo);
+            inicio = nuevo;
+            nuevo.setAnterior(nuevo);
+            nuevo.setSiguiente(null);
             }else{
             NodoDoble temporal = inicio;
             while(temporal.getSiguiente() != null){
