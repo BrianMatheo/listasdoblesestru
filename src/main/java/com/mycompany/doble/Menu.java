@@ -31,6 +31,9 @@ public class Menu extends javax.swing.JFrame {
         AddStart = new javax.swing.JButton();
         Imprimir = new javax.swing.JButton();
         addFinal = new javax.swing.JButton();
+        Position = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +60,22 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Position.setText("Posicion Buscador");
+        Position.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PositionActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Mayores y Posicion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar Menores");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,11 +88,17 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addFinal)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(AddStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Imprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(189, Short.MAX_VALUE))
+                                .addComponent(Imprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(addFinal))
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Position, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,11 +106,17 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(AddStart)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddStart)
+                    .addComponent(Position))
                 .addGap(18, 18, 18)
-                .addComponent(Imprimir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Imprimir)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(addFinal)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addFinal)
+                    .addComponent(jButton2))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
 
@@ -93,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStartActionPerformed
-        listaDoble.insertarInicio(JOptionPane.showInputDialog("Diga el dato"));
+        listaDoble.insertarInicio(JOptionPane.showInputDialog("Diga el dato"),Integer.parseInt(JOptionPane.showInputDialog( "diga su edad")));
     }//GEN-LAST:event_AddStartActionPerformed
 
     private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
@@ -101,8 +132,16 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ImprimirActionPerformed
 
     private void addFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFinalActionPerformed
-        listaDoble.insertarFinal(JOptionPane.showInputDialog("Diga el dato"));
+        listaDoble.insertarFinal(JOptionPane.showInputDialog("Diga su nombre"),Integer.parseInt(JOptionPane.showInputDialog( "diga su edad")));
     }//GEN-LAST:event_addFinalActionPerformed
+
+    private void PositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PositionActionPerformed
+        listaDoble.position(Integer.parseInt(JOptionPane.showInputDialog("diga la posicion")));
+    }//GEN-LAST:event_PositionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        listaDoble.mayores();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,7 +181,10 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddStart;
     private javax.swing.JButton Imprimir;
+    private javax.swing.JButton Position;
     private javax.swing.JButton addFinal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
