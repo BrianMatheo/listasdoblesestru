@@ -5,19 +5,22 @@ import javax.swing.JOptionPane;
 public class Doble {
 
     NodoDoble inicio;
+    int contador = 0;
     Doble(){
         inicio = null;
     }
     public void insertarInicio(String nombre, int edad){
         NodoDoble nuevo = new NodoDoble();
-        nuevo.setAnterior(null);
-        nuevo.setSiguiente(null);
+        nuevo.setAnterior(nuevo);
+        nuevo.setSiguiente(nuevo);
         nuevo.setNombre(nombre);
         nuevo.setEdad(edad);
-        
+        contador++;
         if(inicio != null){
             
             nuevo.setSiguiente(inicio);
+            nuevo.setAnterior(inicio.getAnterior());
+            nuevo.getAnterior().setSiguiente(nuevo);
             inicio.setAnterior(nuevo);
         }
         inicio = nuevo;
@@ -26,12 +29,14 @@ public class Doble {
     public void imprimir(){
         
         NodoDoble temporal = inicio;
+        int conteo = 0;
         if(inicio == null){
             JOptionPane.showMessageDialog(null, "No hay nadie en la lista");
         }else{
-            while(temporal != null){
+            while(contador!=conteo){
                 JOptionPane.showMessageDialog(null, "Datos: " + temporal.getNombre() + " " + temporal.getEdad());
                 temporal = temporal.getSiguiente();
+                conteo++;
             }
         }
     }
@@ -42,17 +47,17 @@ public class Doble {
         nuevo.setSiguiente(null);
         nuevo.setNombre(nombre);
         nuevo.setEdad(edad);
-        
+        contador++;
         if(inicio == null){
-            inicio = nuevo;
             nuevo.setAnterior(nuevo);
-            nuevo.setSiguiente(null);
+            nuevo.setSiguiente(nuevo);
+            inicio = nuevo;
             }else{
             NodoDoble temporal = inicio;
             while(temporal.getSiguiente() != null){
                 temporal = temporal.getSiguiente();
             }
-            temporal.setSiguiente(nuevo);
+            temporal.setSiguiente(inicio.getSiguiente());
             nuevo.setAnterior(temporal);
         }
     }
@@ -63,7 +68,7 @@ public class Doble {
         String antes = "";
         nuevo.setAnterior(null);
         nuevo.setSiguiente(null);
-        int contador = 1;
+        int contador = 0;
         if(inicio == null){
         JOptionPane.showMessageDialog(null, "no hay nada en la lista");
         }else if(inicio != null && position>=0){
