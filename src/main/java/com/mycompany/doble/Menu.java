@@ -75,6 +75,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton2.setText("Eliminar Menores");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,7 +129,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStartActionPerformed
-        listaDoble.insertarInicio(JOptionPane.showInputDialog("Diga el dato"),Integer.parseInt(JOptionPane.showInputDialog( "diga su edad")));
+        listaDoble.insertarInicio(JOptionPane.showInputDialog("Diga su nombre"),Integer.parseInt(JOptionPane.showInputDialog( "diga su edad")));
     }//GEN-LAST:event_AddStartActionPerformed
 
     private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
@@ -142,6 +147,10 @@ public class Menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         listaDoble.mayores();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        listaDoble.eliminar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
